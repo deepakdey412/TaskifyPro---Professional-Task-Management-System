@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskifyPro - Error</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #87CEEB 0%, #1e3c72 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .error-code {
+            font-size: 4rem;
+            color: #1e3c72;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .error-details {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #87CEEB, #1e3c72);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            margin-bottom: 2rem;
+        }
+
+        .logo h2 {
+            color: #1e3c72;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <div class="logo">
+        <h2>TaskifyPro</h2>
+    </div>
+
+    <div class="error-code" th:text="${status} ?: '500'">500</div>
+
+    <div class="error-message">
+        <span th:if="${status == 404}">The page you're looking for doesn't exist.</span>
+        <span th:if="${status == 403}">You don't have permission to access this resource.</span>
+        <span th:if="${status == 500 or status == null}">Something went wrong on our end.</span>
+    </div>
+
+    <div th:if="${error}" class="error-details">
+        <strong>Error Details:</strong><br>
+        <span th:text="${error}"></span>
+    </div>
+
+    <a href="/login" class="back-btn">← Back to Login</a>
+</div>
+</body>
+</html>
