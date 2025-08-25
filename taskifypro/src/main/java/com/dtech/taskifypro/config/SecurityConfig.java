@@ -50,8 +50,6 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/", "/login", "/css/**", "/js/**", "/images/**").permitAll()
-                                // In SecurityConfig.filterChain method, update:
                                 .requestMatchers("/", "/login", "/register", "/css/**").permitAll()
                                 .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .requestMatchers("/user/**").hasRole("USER")
@@ -78,4 +76,5 @@ public class SecurityConfig {
 /*
 Admin user name = admin
 Password = MyNewAdminPass123
+
 */
