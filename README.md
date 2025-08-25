@@ -13,14 +13,6 @@
   <img src="https://img.shields.io/badge/JWT-Authentication-red?style=for-the-badge&logo=json-web-tokens&logoColor=white" alt="JWT" />
 </p>
 
-<!-- GitHub Stats with animations -->
-<p>
-  <img src="https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=gradient&hide_border=true" alt="GitHub Stats" />
-</p>
-
-<!-- Animated wave -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=header"/>
-
 </div>
 
 ---
